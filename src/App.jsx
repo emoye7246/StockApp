@@ -1,13 +1,20 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect, createContext } from 'react'
 import { Dashboard, Navigation, TodaysTickers } from './tickers/Tickers'
 import { Outlet } from 'react-router-dom'
+
+export const SearchContext = createContext(null)
+
+
+
 
 
 export function App() {
 
   const [stocks, setStocks] = useState([])
+  const [symbol, setSymbol] = useState('SPY')
+  const [inputSymbol, setInputSymbol] = useState('SPY')
+
+
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const APIkey = `da23cb17ebde93a1b418830eb2dd0708`
@@ -30,17 +37,16 @@ export function App() {
             setLoading(false)
           }
       }
-      fetchData()
   }, [])
 
-  if(loading) return <div>Please Wait while we find these stocks</div>
-  if(error ) return <div>There was an issue loading stock data</div>
+  // if(loading) return <div>Please Wait while we find these stocks</div>
+  // if(error ) return <div>There was an issue loading stock data</div>
 
   return (
     <>
 
 
-        <div className='flex flex-col'>
+        <div className='flex flex-col min-h-full max-w-screen overflow-hidden'>
 
 
             <TodaysTickers myStocks={stocks} />
@@ -48,11 +54,16 @@ export function App() {
             <div className='flex flex-row'>
                 <Dashboard />
 
+              <SearchContext.Provider value={{symbol, setSymbol, inputSymbol, setInputSymbol}}>
                 <div className='max-w-screen h-fit flex flex-col grow'>
                   <Navigation />
 
-                  <Outlet />
+                  <div>
+                    <Outlet />
+                  </div>
                 </div>
+              </SearchContext.Provider>
+
             </div>
         </div>
         
