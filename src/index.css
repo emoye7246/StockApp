@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+@keyframes scrollingInfinite {
+
+  from {
+
+    transform: translateX(0%);
+
+  }to{
+
+    transform: translateX(-50%)
+  }
+}
+
+
+#scrollContainer{
+
+  animation: scrollingInfinite 20s linear infinite;
+
+
+}
