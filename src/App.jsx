@@ -37,6 +37,7 @@ export function App() {
             setLoading(false)
           }
       }
+      fetchData()
   }, [])
 
   // if(loading) return <div>Please Wait while we find these stocks</div>

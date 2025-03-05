@@ -1,10 +1,9 @@
-import Crimson from '/Users/elijahmoye/Desktop/StockApp/public/Fonts/Crimson_Text/CrimsonText-Regular.ttf'
-import Playfair from '/Users/elijahmoye/Desktop/StockApp/public/Fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf'
-import playfairBold from '/Users/elijahmoye/Desktop/StockApp/public/Fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf'
-import searchIcon from '/Users/elijahmoye/Desktop/StockApp/public/Fonts/icons/search-interface-symbol.png'
+import Crimson from '/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/Crimson_Text/CrimsonText-Regular.ttf'
+import Playfair from '/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf'
+import playfairBold from '/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf'
+import searchIcon from '/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/icons/search-interface-symbol.png'
 import {useState, useContext} from 'react'
 import { SearchContext } from '../App'
-
 
 
 
@@ -80,7 +79,8 @@ export const Dashboard = () => {
 
 export const Navigation = () => {
 
-    const {setSymbol, inputSymbol, setInputSymbol} = useContext(SearchContext)
+const {setSymbol, inputSymbol, setInputSymbol} = useContext(SearchContext)
+
 
 
     return (
@@ -92,9 +92,9 @@ export const Navigation = () => {
 
                     <div className='flex flex-row items-center gap-x-5'>
 
-                        <input type="text" className="border-2 bg-gray-100 h-8 rounded-2xl" onChange={(e) => setInputSymbol(e.target.value)}/>
+                        <input type="text" className="border-2 bg-gray-100 h-8 rounded-2xl" onChange={(e) => setInputSymbol(e.target.value)} />
                         
-                        <img src={searchIcon} alt="searchBar" className='h-[24px] w-[24px]' onClick={() => setSymbol(inputSymbol)} />
+                        <img src={searchIcon} alt="searchBar" className='h-[24px] w-[24px]' onClick={() => setSymbol(inputSymbol)}  />
 
                     </div>
 
