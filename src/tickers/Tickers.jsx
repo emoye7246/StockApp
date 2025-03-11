@@ -1,8 +1,8 @@
-import searchIcon from '/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/icons/search-interface-symbol.png'
 import { Link } from 'react-router-dom'
 import {useState, useContext} from 'react'
 import { SearchContext } from '../App'
 import { format } from 'date-fns'
+import { myIcons } from '../assets/icons'
 
 
 
@@ -88,7 +88,7 @@ const {setSymbol, inputSymbol, setInputSymbol} = useContext(SearchContext)
 
                         <input type="text" className="border-2 bg-gray-100 h-8 rounded-2xl" onChange={(e) => setInputSymbol(e.target.value)} />
                         
-                        <img src={searchIcon} alt="searchBar" className='h-[24px] w-[24px]' onClick={() => setSymbol(inputSymbol)}  />
+                        <img src={myIcons.search} alt="searchBar" className='h-[24px] w-[24px]' onClick={() => setSymbol(inputSymbol)}  />
 
                     </div>
 
