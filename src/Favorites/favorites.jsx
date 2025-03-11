@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { SearchContext } from "../App"
-import { myIcons } from "../assets/icons"
+import { myIcons } from "../../public/assets/icons"
 
 export const Favorites = () => {
 

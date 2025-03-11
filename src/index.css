@@ -3,12 +3,12 @@
 
 @font-face {
   font-family: 'playfairText';
-  src: url('/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf');
+  src: url('public/assets/Fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf');
 }
 
 @font-face {
   font-family: 'antonText';
-  src: url('/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/Anton/Anton-Regular.ttf');
+  src: url('public/assets/Fonts/Anton/Anton-Regular.ttf');
 }
 
 @keyframes scrollingInfinite {

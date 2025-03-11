@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import {useState, useContext} from 'react'
 import { SearchContext } from '../App'
 import { format } from 'date-fns'
-import { myIcons } from '../assets/icons'
+import { myIcons } from '../../public/assets/icons'
 
 
 

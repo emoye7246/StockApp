@@ -1,7 +1,8 @@
 import { SearchContext } from "../App"
 import { useContext } from "react"
 import { format } from 'date-fns'
-import { myIcons } from "../assets/icons"
+import { myIcons } from "../../public/assets/icons"
+
 
 
 export const Watchlist = () => {
