@@ -25,7 +25,7 @@ export const Homepage = () => {
 
             try{
 
-                const response = await fetch (`https://api.marketstack.com/v1/tickers/${symbol}/intraday?access_key=${Apikey}`, {mode: 'cors'})
+                const response = await fetch (`https://api.marketstack.com/v2/tickers/${symbol}/intraday?access_key=${Apikey}`, {mode: 'cors'})
                 await response.json().then((response) => {
                     
                     console.log(response)
