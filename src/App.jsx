@@ -24,10 +24,10 @@ export function App() {
   const [watchlist, setWatchlist] = useState([])
 
 
-  const addFavorites = (name) => {
+  const addFavorites = (name, price) => {
 
     console.log(favorites)
-    const addStock = {id: crypto.randomUUID(), name: name}
+    const addStock = {id: crypto.randomUUID(), name: name, price: price, message: `Date added: ${format(new Date(), 'MMMM, do, yyyy')}`  }
     setFavorites((prevStock) => [...prevStock, addStock])
 }
 
@@ -55,6 +55,7 @@ const addWatchList = (name, price) => {
             setLoading(false)
           }
       }
+      fetchData()
   }, [])
 
   // if(loading) return <div>Please Wait while we find these stocks</div>

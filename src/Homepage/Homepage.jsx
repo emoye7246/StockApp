@@ -42,6 +42,7 @@ export const Homepage = () => {
             }
             
         }
+        fetchData()
     }, [symbol])
 
     useEffect(() => {
