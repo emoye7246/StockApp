@@ -3,12 +3,17 @@
 
 @font-face {
   font-family: 'playfairText';
-  src: url('public/assets/Fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf');
+  src: url('/assets/Fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
 }
 
 @font-face {
   font-family: 'antonText';
-  src: url('public/assets/Fonts/Anton/Anton-Regular.ttf');
+  src: url('/assets/Fonts/Anton/Anton-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @keyframes scrollingInfinite {
@@ -47,12 +52,6 @@
   animation: scrollingInfinite 20s linear infinite;
 
 
-}
-
-#buttonStyle{
-
-
-  
 }
 
 /* CSS */

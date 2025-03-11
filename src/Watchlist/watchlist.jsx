@@ -1,7 +1,7 @@
 import { SearchContext } from "../App"
 import { useContext } from "react"
 import { format } from 'date-fns'
-import { myIcons } from "../../public/assets/icons"
+import { myIcons } from "../icons"
 
 
 
