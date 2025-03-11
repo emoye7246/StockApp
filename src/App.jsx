@@ -44,7 +44,7 @@ const addWatchList = (name, price) => {
 
           try{
 
-            const response = await fetch(`http://api.marketstack.com/v1/intraday/latest?access_key=${APIkey}&symbols=SPY,AAPL,MSFT,AMZN,GOOGL,TSLA,FB,NVDA,NFLX,AVGO`)
+            const response = await fetch(`https://api.marketstack.com/v1/intraday/latest?access_key=${APIkey}&symbols=SPY,AAPL,MSFT,AMZN,GOOGL,TSLA,FB,NVDA,NFLX,AVGO`, {mode: 'cors'})
             await response.json().then((response) => {
               setStocks(response.data)
             })
