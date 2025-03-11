@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from 'react'
 import { Dashboard, Navigation, TodaysTickers } from './tickers/Tickers'
+import { format } from 'date-fns'
 import { Outlet } from 'react-router-dom'
 
 export const SearchContext = createContext(null)
@@ -19,6 +20,23 @@ export function App() {
   const [error, setError] = useState(null)
   const APIkey = `da23cb17ebde93a1b418830eb2dd0708`
 
+  const [favorites, setFavorites] = useState([])
+  const [watchlist, setWatchlist] = useState([])
+
+
+  const addFavorites = (name) => {
+
+    console.log(favorites)
+    const addStock = {id: crypto.randomUUID(), name: name}
+    setFavorites((prevStock) => [...prevStock, addStock])
+}
+
+const addWatchList = (name, price) => {
+    console.log(watchlist)
+    const addStock = {id: crypto.randomUUID(), name: name, price: price, message: `Date added: ${format(new Date(), 'MMMM, do, yyyy')}`}
+    setWatchlist((prevStock) => [...prevStock, addStock])
+}
+
 
   useEffect(() => {
 
@@ -37,7 +55,6 @@ export function App() {
             setLoading(false)
           }
       }
-      fetchData()
   }, [])
 
   // if(loading) return <div>Please Wait while we find these stocks</div>
@@ -47,7 +64,7 @@ export function App() {
     <>
 
 
-        <div className='flex flex-col min-h-full max-w-screen overflow-hidden'>
+        <div className='flex flex-col min-h-full max-w-screen overflow-hidden' id='fade'>
 
 
             <TodaysTickers myStocks={stocks} />
@@ -55,7 +72,7 @@ export function App() {
             <div className='flex flex-row'>
                 <Dashboard />
 
-              <SearchContext.Provider value={{symbol, setSymbol, inputSymbol, setInputSymbol}}>
+              <SearchContext.Provider value={{symbol, setSymbol, inputSymbol, setInputSymbol, favorites, setFavorites, watchlist, setWatchlist, addFavorites, addWatchList}}>
                 <div className='max-w-screen h-fit flex flex-col grow'>
                   <Navigation />
 

@@ -1,16 +1,17 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, createContext } from "react"
 import { useContext } from "react"
 import { SearchContext } from "../App"
 import { Line } from "react-chartjs-2"
 import 'chart.js/auto'
-import Anton from '/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/Anton/Anton-Regular.ttf'
-import playFairBold from '/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf'
+
+
 
 export const Homepage = () => {
 
-    const {symbol} = useContext(SearchContext)
+    const {symbol, addFavorites, addWatchList} = useContext(SearchContext)
     const [stockData, setStockData] = useState([])
     const [intraday, setIntraday] = useState([])
+
     const [barColor, setBarColor] = useState('gray')
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
@@ -85,6 +86,8 @@ export const Homepage = () => {
 
     }
 
+ 
+
 
 
     return (
@@ -101,8 +104,10 @@ export const Homepage = () => {
                 </a>
             </div>
             )}
+
+
             
-            <div className="flex flex-col justify-center min-h-screen max-w-full">
+            <div className="flex flex-col justify-center min-h-screen max-w-full" id="fade">
 
                     <div className="flex flex-row items-center justify-center">
 
@@ -111,20 +116,20 @@ export const Homepage = () => {
                             <div className="flex flex-col gap-y-10">
 
                                 <div>
-                                    <div className="text-[52px] text-[#929191] font-[playFairBold]">{stockData.name}</div>
+                                    <div className="text-[52px] text-[#929191]" style={{fontFamily: 'playfairText'}}>{stockData.name}</div>
                                     <hr className="border-black w-96 max-h-0 flex" />
                                 </div>
                                 
 
                                 <div className="flex flex-col gap-y-10">
-                                    <div className="text-center font-[Anton] text-6xl text-green-500">$ {intraday.close}</div>
+                                    <div className="text-center font-[Anton] text-6xl text-green-500" style={{fontFamily: 'antonText'}}>$ {intraday.close}</div>
 
                                     <div className="flex flex-row items-center justify-center gap-x-12">
                                         <div>
-                                            <div>Add to Favorites</div>
+                                            <button id='buttonStyle' onClick={() => addFavorites(stockData.name)}>Add to favorites</button>
                                         </div>
                                         <div>
-                                            <div>Add to Watchlist</div>
+                                            <div id="buttonStyle" onClick={() => addWatchList(stockData.name, intraday.close)}>Add to Watchlist</div>
                                         </div>
                                     </div>
                                 </div>
@@ -138,7 +143,11 @@ export const Homepage = () => {
 
                         </div>
                     </div>
+
+
             </div>
+
+            
 
         </>
     )

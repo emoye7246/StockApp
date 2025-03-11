@@ -1,10 +1,8 @@
-import Crimson from '/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/Crimson_Text/CrimsonText-Regular.ttf'
-import Playfair from '/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf'
-import playfairBold from '/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf'
 import searchIcon from '/Users/elijahmoye/Desktop/StockApp/src/assets/Fonts/icons/search-interface-symbol.png'
+import { Link } from 'react-router-dom'
 import {useState, useContext} from 'react'
 import { SearchContext } from '../App'
-
+import { format } from 'date-fns'
 
 
 
@@ -15,9 +13,9 @@ export const TodaysTickers = ({myStocks}) => {
     return (
 
 <>
-    <div className="flex max-w-full overflow-hidden relative bg-[#D9D9D9] font-[Playfair]">
+    <div className="flex max-w-full overflow-hidden relative bg-[#D9D9D9] shrink-0" style={{fontFamily: 'playfairText'}}>
 
-        <div className="w-1/4 shrink-0 p-5 items-center text-center border-2 whitespace-nowrap">Market is Open</div>
+        <div className="w-1/4 shrink-0 p-5 items-center text-center border-2 whitespace-nowrap">{`${format(new Date(), 'MMMM, do, yyyy')}`}</div>
 
         <div className="flex overflow-hidden flex-grow">
 
@@ -46,7 +44,7 @@ export const Dashboard = () => {
     return (
 
         <>
-            <div className="flex flex-col min-h-full gap-y-20 justify-center items-center w-1/4 border-2 bg-[#44444C]">
+            <div className="flex flex-col min-h-full gap-y-10 justify-center items-center w-1/4 border-2 bg-[#44444C] shrink-0" style={{fontFamily: 'playfairText'}}>
                 
                 <div className="flex flex-col mt-5 ">
                     <div className='text-[32px] font-[Crimson] text-[#E9E7E7]'>Dashboard</div>
@@ -54,23 +52,19 @@ export const Dashboard = () => {
                 </div>
                     
                 <div className="flex flex-col gap-y-20 text-2xl font-[Playfair] text-[#E9E7E7]">
-                    <div>Home</div>
-                    <div>Favorites</div>
-                    <div>Watchlist</div>
+
+                    <Link to='/'>
+                        <div>Home</div>
+                    </Link>
+
+                    <Link to='favorites'>
+                        <div>Favorites</div>
+                    </Link>
+
+                    <Link to='watchlist'>
+                        <div>Watchlist</div>
+                    </Link>
                 </div>
-
-                <div className="flex flex-col">
-                    <div className='text-[32px] font-[Crimson] text-[#E9E7E7]'>Find Index Funds</div>
-                    <hr/>
-                </div>
-
-                <div className="flex flex-col gap-y-20 text-2xl font-[Playfair] text-[#E9E7E7]">
-                    <div>Spy</div>
-                    <div>Voo</div>
-                    <div>QQQ</div>
-                </div>
-
-
             </div>
         </>
     )
