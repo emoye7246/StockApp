@@ -41,6 +41,11 @@
   }
 }
 
+body {
+
+  background-color: #363636;
+}
+
 #fade{
 
   animation: fade-in 0.9s ease-out backwards;

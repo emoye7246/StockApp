@@ -2,11 +2,10 @@ import { useState, useEffect, createContext } from 'react'
 import { Dashboard, Navigation, TodaysTickers } from './tickers/Tickers'
 import { format } from 'date-fns'
 import { Outlet } from 'react-router-dom'
+import { Spinner } from './stylised/customComponents'
+import { myIcons } from './icons'
 
 export const SearchContext = createContext(null)
-
-
-
 
 
 export function App() {
@@ -58,14 +57,44 @@ const addWatchList = (name, price) => {
       fetchData()
   }, [])
 
-  // if(loading) return <div>Please Wait while we find these stocks</div>
-  // if(error ) return <div>There was an issue loading stock data</div>
+
 
   return (
     <>
+        {loading && (
 
+          <div className='flex flex-col min-h-screen max-w-screen items-center justify-center gap-y-10'>
 
-        <div className='flex flex-col min-h-full max-w-screen overflow-hidden' id='fade'>
+              <div style={{fontFamily: 'playfairText'}} className='flex flex-row gap-x-10 text-2xl items-center'>
+
+                <img src={myIcons.icon} alt="investIcon" className='w-[96px] h-[96px] text-2xl' />
+                <div className='text-white text-center'>Invest With Us</div>
+
+              </div>
+
+              <Spinner />
+
+          </div>
+        )}
+
+        {error && (
+
+            <div className='flex flex-col min-h-screen max-w-screen items-center justify-center'>
+
+              <div style={{fontFamily: 'playfairText'}} className='flex flex-row gap-x-10'>
+
+                <img src={myIcons.icon} alt="investIcon" className='w-[64px] h-[64px]' />
+                <div>Invest With Us</div>
+
+              </div>
+
+              <div>{error} sorry for the incovienence please refresh or try again later</div>
+
+          </div>
+
+        )}
+
+        <div className={loading ? 'hidden' : 'flex flex-col min-h-full max-w-screen overflow-hidden'} id='fade'>
 
 
             <TodaysTickers myStocks={stocks} />
@@ -77,7 +106,7 @@ const addWatchList = (name, price) => {
                 <div className='max-w-screen h-fit flex flex-col grow'>
                   <Navigation />
 
-                  <div>
+                  <div className='bg-white'>
                     <Outlet />
                   </div>
                 </div>
