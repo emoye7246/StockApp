@@ -4,7 +4,7 @@ import { format } from 'date-fns'
 import { Outlet } from 'react-router-dom'
 import { Spinner } from './stylised/customComponents'
 import { myIcons } from './icons'
-import { access_key } from './personal/fetch'
+import { access_key } from '/personal/fetch.jsx'
 
 export const SearchContext = createContext(null)
 
