@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, createContext } from "react"
 import { useContext } from "react"
 import { SearchContext } from "../App"
 import { Line } from "react-chartjs-2"
-import { access_key } from "../personal/fetch"
+import { access_key } from "/personal/fetch.jsx"
 import 'chart.js/auto'
 
 
