@@ -4,7 +4,6 @@ import { format } from 'date-fns'
 import { Outlet } from 'react-router-dom'
 import { Spinner } from './stylised/customComponents'
 import { myIcons } from './icons'
-import { access_key } from '/personal/fetch.jsx'
 
 export const SearchContext = createContext(null)
 
@@ -18,6 +17,7 @@ export function App() {
 
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const APIkey = `da23cb17ebde93a1b418830eb2dd0708`
 
   const [favorites, setFavorites] = useState([])
   const [watchlist, setWatchlist] = useState([])
@@ -43,7 +43,7 @@ const addWatchList = (name, price) => {
 
           try{
 
-            const response = await fetch(`https://api.marketstack.com/v1/intraday/latest?access_key=${access_key}&symbols=SPY,AAPL,MSFT,AMZN,GOOGL,TSLA,FB,NVDA,NFLX,AVGO`)
+            const response = await fetch(`https://api.marketstack.com/v1/intraday/latest?access_key=${APIkey}&symbols=SPY,AAPL,MSFT,AMZN,GOOGL,TSLA,FB,NVDA,NFLX,AVGO`)
             await response.json().then((response) => {
               setStocks(response.data)
             })
