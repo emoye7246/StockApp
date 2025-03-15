@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, createContext } from "react"
 import { useContext } from "react"
 import { SearchContext } from "../App"
 import { Line } from "react-chartjs-2"
+import { access_key } from "../personal/fetch"
 import 'chart.js/auto'
 
 
@@ -15,7 +16,6 @@ export const Homepage = () => {
     const [barColor, setBarColor] = useState('gray')
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
-    const Apikey = 'da23cb17ebde93a1b418830eb2dd0708'
 
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export const Homepage = () => {
 
             try{
 
-                const response = await fetch (`https://api.marketstack.com/v2/tickers/${symbol}/intraday?access_key=${Apikey}`, {mode: 'cors'})
+                const response = await fetch (`https://api.marketstack.com/v2/tickers/${symbol}/intraday?access_key=${access_key}`, {mode: 'cors'})
                 await response.json().then((response) => {
                     
                     console.log(response)
